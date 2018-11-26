@@ -34,6 +34,42 @@ The length of sequence for each training example could also be different
 
 ![slide](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-23 at 9.46.47 PM.png)
 
+* Forward/Backward propagation **computational graph**
 * Backprop through time just back through input sequence examples
 * So far, the input length and output length are the same
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-24 at 8.41.23 PM.png)
+
+* One-to-one is just generic neural network
+
+![s](./SlideScreenShots/Screen Shot 2018-11-24 at 8.46.00 PM.png)
+
+* In music generation, the output $ \widehat{y}^{<t>} $ is also feed into the next layer
+* Attention based architecture in week 3
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-24 at 9.11.29 PM.png)
+
+* Many to many: $T_x$ and $T_y$ doesn't have to be the equal
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-24 at 9.25.21 PM.png)
+
+* Language modeling: model the probability of occurence for a sentence
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-24 at 9.26.03 PM.png)
+
+* 1st step in language modeling, tokenize words
+* Puncuations tokenizations are optional
+* EOS: end of sentence
+* UNK: unkown word
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-24 at 9.54.53 PM.png)
+
+* The goal in language model is to predict the next word, given prvious words
+* One can train a model using training data with cross entorpy loss
+* Then, one can give some words, and ask the model to predict the next word
+* Or, one can give a sentence, and ask the model to calculate the probability of this sentence
+* Softmax: the probability of first word y. y is every word in the dictionary
+* Given $x^{t}$, predict $y^{t+1}$
+	* 	Given nothing ($x^{<1>} = \overrightarrow{0}$), predict a softmax for all words in dict for the 1st word ($\widehat{y}^{<1>}$)
+	 
 
