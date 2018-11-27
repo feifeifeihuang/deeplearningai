@@ -72,4 +72,59 @@ The length of sequence for each training example could also be different
 * Given $x^{t}$, predict $y^{t+1}$
 	* 	Given nothing ($x^{<1>} = \overrightarrow{0}$), predict a softmax for all words in dict for the 1st word ($\widehat{y}^{<1>}$)
 	 
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 6.30.16 PM.png)
 
+* at each step, use the sampled output from previous step, to calculate the distribution for $\widehat{y}^{<t>}$, then use np.random.choice() to randomly sample a value
+* Stop at <EOS>, or a specific length
+* When <UNK> encountered, either reject and resample, or keep the <UNK> in output
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 6.33.34 PM.png)
+
+* Character level model would not produce <UNK>
+* But it's harder to train
+* The length would be much longer than word model
+* Hard to remember the dependencies at long distances
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 6.36.23 PM.png)
+
+* Cat ... **was**
+* Cat**s** ... **were**
+* For sentences too long, gradients are hard to be pass 
+* The dependence is also hard to pass when stentences too long
+* Exploding gradient can be dealt by gradient clipping
+	* Scale gradient when reach some max threshold
+	* Exploding grad easy to notice, you see NaN
+	* Vanishing grad much harder to deal
+	
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 7.51.09 PM.png)
+
+* $\widehat{y}^{<t>}$ is caclulated by $g(W_y a^{<t>} + b_y)$
+	
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 7.58.12 PM.png)
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 7.59.40 PM.png)
+
+* $a^{<t>} = c^{<t>}$
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 8.11.17 PM.png)
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 8.13.03 PM.png)
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 8.14.34 PM.png)
+
+* Easy to learn parameters such that $c$ remains unchanged through out time
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 8.16.48 PM.png)
+
+* In Peephole connection, $c^{<t-1>}$ only has element wise effect. So the ith element will only affect the ith element in corresonding $\Gamma$
+* LSTM is developed before GRU. GRU has smaller set of parameters
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 8.20.03 PM.png)
+
+* Can also be applied to LSTM/GRU 
+
+![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 8.21.27 PM.png)
+
+* Each unit can be GRU/LSTM/BRNN as well
+* The number of layers are usually small, 3 is pretty deep. Because of the difficulty in computation for very deep layers due to number of times
+* Can attach more layers at the end, but not with horizontal connections. So treating them as independent
