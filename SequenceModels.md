@@ -102,11 +102,23 @@ The length of sequence for each training example could also be different
 	
 ![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 7.58.12 PM.png)
 
+* $a^{<t>} = c^{<t>}$
+* $\widetilde{c}^{<t>}$: candidate cell
+* $\Gamma$: gate
+* $\Gamma_u$: update gate
+* $\Gamma$ takes value either very close to $1$ or $0$ due to sigmoid
+* GRU works better for gradient vanishing problem because gradient could propagate back through time without much decay if $\Gamma_u$ is  close to $0$
+
 ![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 7.59.40 PM.png)
 
 * $a^{<t>} = c^{<t>}$
+* $\Gamma_r$: relevance gate
 
 ![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 8.11.17 PM.png)
+
+* $\Gamma_u$: update gate
+* $\Gamma_f$: forget gate
+* $\Gamma_o$: output gate
 
 ![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 8.13.03 PM.png)
 
