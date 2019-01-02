@@ -9,6 +9,8 @@ The length of sequence for each training example could also be different
 
 ![slide](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-21 at 11.45.12 AM.png)
 
+![Notation](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-28 at 7.35.13 PM.png)
+
 ![slide](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-21 at 11.39.12 AM.png)
 
 ![slide](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-23 at 7.21.00 PM.png)
@@ -130,6 +132,7 @@ The length of sequence for each training example could also be different
 
 * In Peephole connection, $c^{<t-1>}$ only has element wise effect. So the ith element will only affect the ith element in corresonding $\Gamma$
 * LSTM is developed before GRU. GRU has smaller set of parameters
+* The "trend" in time series should be able to be captured in $\Gamma_o$
 
 ![s](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-26 at 8.20.03 PM.png)
 
@@ -140,3 +143,5 @@ The length of sequence for each training example could also be different
 * Each unit can be GRU/LSTM/BRNN as well
 * The number of layers are usually small, 3 is pretty deep. Because of the difficulty in computation for very deep layers due to number of times
 * Can attach more layers at the end, but not with horizontal connections. So treating them as independent
+
+![gradient_clipping](/Users/feihuang/LocalDocs/Notes/deeplearningai/SlideScreenShots/Screen Shot 2018-11-29 at 8.50.16 PM.png)
